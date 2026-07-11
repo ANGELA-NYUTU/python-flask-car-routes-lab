@@ -1,1 +1,26 @@
+from flask import Flask
+
 existing_models = ['Beedle', 'Crossroads', 'M2', 'Panique']
+
+app = Flask(__name__)
+
+@app.route('/')
+def car():
+    return """
+    <h1>Welcome to Flatiron Cars</h1>
+    <ul>
+        <li>Email: info@flatironmotors.co.ke</li>
+        <li>Tel: 0712345678</li>
+        <li>&copy; Flatiron Cars</li>
+    </ul>
+    """
+
+@app.route('/<model>')
+def make(model):
+    if model in existing_models:
+        return f"<h1>Flatiron {model} is in our fleet!</h1>"
+    else:
+        return f"<h1>No model called {model} exists in our catalog.</h1>"
+
+if __name__ == '__main__':
+    app.run(port=5555, debug=True)
