@@ -6,14 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def car():
-    return """
-    <h1>Welcome to Flatiron Cars</h1>
-    <ul>
-        <li>Email: info@flatironmotors.co.ke</li>
-        <li>Tel: 0712345678</li>
-        <li>&copy; Flatiron Cars</li>
-    </ul>
-    """
+    return '<h1>Welcome to Flatiron Cars</h1>'
+
 
 @app.route('/<model>')
 def make(model):
